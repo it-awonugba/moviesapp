@@ -27,7 +27,24 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <div className="pb-10 font-[family-name:var(--font-geist-sans)] bg-slate-500/10 overflow-y-auto">
+          <header className="text-center">
+            <h1 className="text-3xl font-bold">Next.js Movie App</h1>
+            <p className="text-gray-600 mt-2">
+              A simple movie browsing application built with Next.js
+            </p>
+          </header>
+          <main className="p-8 gap-16 sm:p-20">{children}</main>
+          <footer className="text-center text-sm text-gray-500">
+            <p>
+              Made with{" "}
+              <span role="img" aria-label="heart">
+                ❤️
+              </span>{" "}
+              by <a href="">Webking</a>
+            </p>
+          </footer>
+        </div>
       </body>
     </html>
   );
