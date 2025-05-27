@@ -2,10 +2,8 @@
 import Image, { ImageProps } from "next/image";
 import { memo, useState } from "react";
 
-interface LazyImageProps extends ImageProps {}
-
 const LazyImage = memo(
-  ({ className, alt, ...props }: LazyImageProps) => {
+  ({ className, alt, ...props }: ImageProps) => {
     const [error, setError] = useState(false);
     const errorImage = "/placeholder.svg";
 
