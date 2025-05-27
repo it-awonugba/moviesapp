@@ -34,5 +34,6 @@ const LazyImage = memo(
     );
   }
 );
+LazyImage.displayName = "LazyImage";
 
 export default LazyImage;

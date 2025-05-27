@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { MonitorPlayIcon, HeartIcon, MoonIcon, Moon } from "lucide-react";
+import { MonitorPlayIcon, HeartIcon, MoonIcon } from "lucide-react";
 import { Button } from "../ui/button";
 
 export default function Header() {
