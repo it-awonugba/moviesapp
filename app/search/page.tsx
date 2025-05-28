@@ -8,7 +8,7 @@ import { TMovieList } from "@/types";
 import { searchMovies } from "@/actions/movies";
 import MovieCard from "@/components/MovieCard";
 
-export default function page() {
+export default function SearchResultPage() {
   const searchParams = useSearchParams();
   const [page, setPage] = useState(0);
   const [movies, setMovies] = useState<TMovieList>([]);
