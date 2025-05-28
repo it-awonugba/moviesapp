@@ -6,7 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { useCallback } from "react";
-import { debounce } from "@/lib/debounce";
+import { debounceSearchForm } from "@/lib/debounce-search";
 import { FormSchema } from "@/schemas/form-schema";
 
 const defaultValues = {
@@ -26,7 +26,7 @@ export default function SearchForm() {
     router.push(`/search?query=${encodeURIComponent(data.search.trim())}`);
   };
 
-  const debouncedOnSubmit = useCallback(debounce(onSubmit, 500), []);
+  const debouncedOnSubmit = useCallback(debounceSearchForm(onSubmit, 500), []);
 
   return (
     <form

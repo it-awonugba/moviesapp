@@ -1,4 +1,4 @@
-export function debounce(
+export function debounceSearchForm(
   fn: (data: { search: string }) => void,
   delay: number
 ): (data: { search: string }) => void {
