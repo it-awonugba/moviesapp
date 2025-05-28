@@ -45,7 +45,7 @@ export default function SearchResultPage() {
   if (movies.length === 0) {
     return (
       <div className="text-center text-gray-500">
-        No movies found for "{query}".
+        No movies found for {query}.
       </div>
     );
   }
