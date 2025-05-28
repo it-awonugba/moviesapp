@@ -3,29 +3,26 @@
 import { Input } from "../ui/input";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
 import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { useCallback } from "react";
 import { debounce } from "@/lib/debounce";
+import { FormSchema } from "@/schemas/form-schema";
 
 const defaultValues = {
   search: "",
 };
 
 export default function SearchForm() {
-  const formSchema = z.object({
-    search: z.string().min(3, "Search query is required"),
-  });
   const router = useRouter();
 
   const form = useForm({
     mode: "all",
-    resolver: zodResolver(formSchema),
+    resolver: zodResolver(FormSchema),
     defaultValues,
   });
 
-  const onSubmit = (data: z.infer<typeof formSchema>) => {
+  const onSubmit = (data: typeof defaultValues) => {
     router.push(`/search?query=${encodeURIComponent(data.search.trim())}`);
   };
 

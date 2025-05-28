@@ -1,11 +1,13 @@
-export const debounce = <T extends (...args: any[]) => void>(
-  func: T,
+export function debounce(
+  fn: (data: { search: string }) => void,
   delay: number
-) => {
+): (data: { search: string }) => void {
   let timeoutId: ReturnType<typeof setTimeout>;
 
-  return (...args: Parameters<T>) => {
+  return function (data: { search: string }) {
     clearTimeout(timeoutId);
-    timeoutId = setTimeout(() => func(...args), delay);
+    timeoutId = setTimeout(() => {
+      fn(data);
+    }, delay);
   };
-};
+}
