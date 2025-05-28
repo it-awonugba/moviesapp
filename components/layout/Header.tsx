@@ -19,13 +19,13 @@ export default function Header() {
           variant="outline"
           className="max-sm:size-10 cursor-pointer"
         >
-          <Link href="/wishlist">
+          <Link href="/watchlist">
             <HeartIcon
               className="inline-block w-6 h-6"
               fill="red"
               color="red"
             />
-            <span className="max-sm:hidden text-sm">Wishlist</span>
+            <span className="max-sm:hidden text-sm">Watch list</span>
           </Link>
         </Button>
         <Button
