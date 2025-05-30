@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,16 +31,8 @@ export default function RootLayout({
       >
         <div className="pb-10 font-[family-name:var(--font-geist-sans)] bg-slate-500/10 overflow-y-auto">
           <Header />
-          <main className="p-8 gap-16 sm:p-20">{children}</main>
-          <footer className="text-center text-sm text-gray-500">
-            <p>
-              Made with{" "}
-              <span role="img" aria-label="heart">
-                ❤️
-              </span>{" "}
-              by <a href="">Webking</a>
-            </p>
-          </footer>
+          <main className="w-full h-full">{children}</main>
+          <Footer />
         </div>
       </body>
     </html>
