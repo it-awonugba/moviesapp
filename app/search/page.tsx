@@ -7,10 +7,7 @@ import { TMovieList } from "@/types";
 
 import { searchMovies } from "@/actions/movies";
 import MovieCard from "@/components/MovieCard";
-
-export const NotFound = () => (
-  <div className="text-center text-gray-500">No results found.</div>
-);
+import NotFound from "@/components/NotFound";
 
 export default function SearchResultPage() {
   const searchParams = useSearchParams();
@@ -46,16 +43,16 @@ export default function SearchResultPage() {
     );
   }
 
-  return (
-    <Suspense fallback={movies.length === 0 && <NotFound />}>
-      <section className="container mx-auto p-8 gap-16 sm:p-20">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 w-full">
-          {movies.map((movie, index) => (
-            <MovieCard movie={movie} key={index} />
-          ))}
-          <div ref={ref} className="invisible h-0" />
-        </div>
-      </section>
-    </Suspense>
+  return movies.length === 0 ? (
+    <NotFound />
+  ) : (
+    <section className="container mx-auto p-8 gap-16 sm:p-20">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 w-full">
+        {movies.map((movie, index) => (
+          <MovieCard movie={movie} key={index} />
+        ))}
+        <div ref={ref} className="invisible h-0" />
+      </div>
+    </section>
   );
 }
