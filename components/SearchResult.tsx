@@ -43,7 +43,7 @@ export default function SearchResultPage() {
     );
   }
 
-  return movies.length === 0 ? (
+  return movies && movies.length === 0 ? (
     <NotFound />
   ) : (
     <section className="container mx-auto p-8 gap-16 sm:p-20">
