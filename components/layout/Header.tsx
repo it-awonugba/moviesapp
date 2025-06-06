@@ -2,7 +2,6 @@ import Link from "next/link";
 import { MonitorPlayIcon, HeartIcon, MoonIcon } from "lucide-react";
 import { Button } from "../ui/button";
 import SearchForm from "../form/SearchForm";
-import { Suspense } from "react";
 
 export default function Header() {
   return (
@@ -13,11 +12,7 @@ export default function Header() {
       >
         <MonitorPlayIcon className="w-6 h-6 text-gray-700" />
       </Link>
-      <Suspense
-        fallback={<div className="w-32 h-6 bg-gray-200 animate-pulse" />}
-      >
-        <SearchForm />
-      </Suspense>
+      <SearchForm />
       <nav className="flex items-center gap-1 sm:gap-4">
         <Button
           asChild

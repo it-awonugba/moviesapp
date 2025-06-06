@@ -8,6 +8,8 @@ import { cn } from "@/lib/utils";
 import { useCallback } from "react";
 import { debounceSearchForm } from "@/lib/debounce-search";
 import { FormSchema } from "@/schemas/form-schema";
+import { SearchIcon } from "lucide-react";
+import { Button } from "../ui/button";
 
 const defaultValues = {
   search: "",
@@ -33,17 +35,27 @@ export default function SearchForm() {
       onSubmit={form.handleSubmit(debouncedOnSubmit)}
       className="flex-1 mx-4"
     >
-      <Input
-        {...form.register("search")}
-        type="text"
-        placeholder="Search for movies..."
-        className={cn(
-          "w-full max-w-md outline-none transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-blue-500",
-          {
-            "focus-visible:ring-red-500": form.formState.errors.search?.message,
-          }
-        )}
-      />
+      <div className="relative max-w-md">
+        <Input
+          {...form.register("search")}
+          type="text"
+          placeholder="Search for movies..."
+          className={cn(
+            "w-full pr-12 outline-none transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-blue-500",
+            {
+              "focus-visible:ring-red-500":
+                form.formState.errors.search?.message,
+            }
+          )}
+        />
+        <Button
+          type="submit"
+          size="icon"
+          className="absolute top-0 z-10 right-0 cursor-pointer bg-transparent shadow-none hover:bg-transparent dark:hover:bg-transparent"
+        >
+          <SearchIcon color="black" />
+        </Button>
+      </div>
     </form>
   );
 }
