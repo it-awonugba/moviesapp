@@ -46,7 +46,6 @@ export default function SearchResultPage() {
     );
   }
 
-  console.log(movies);
   return (
     <Suspense fallback={movies.length === 0 && <NotFound />}>
       <section className="container mx-auto p-8 gap-16 sm:p-20">
